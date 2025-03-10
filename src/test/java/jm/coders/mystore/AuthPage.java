@@ -4,20 +4,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LoginPage {
-    private static WebDriver driver;
+public class AuthPage {
 
-    public LoginPage(WebDriver driver){this.driver = driver; }
+    private WebDriver driver;
 
-    public void login(){
+    public AuthPage(WebDriver driver){
+        this.driver = driver;
+    }
 
-        WebElement loginInput = driver.findElement();
+    public void login(String email, String password){
+
+        WebElement loginInput = driver.findElement(By.name("email"));
         loginInput.click();
         loginInput.clear();
         loginInput.sendKeys(email);
 
 
-        WebElement passwordInput = driver.findElement();
+        WebElement passwordInput = driver.findElement(By.name("password"));
         passwordInput.click();
         passwordInput.clear();
         passwordInput.sendKeys(password);
